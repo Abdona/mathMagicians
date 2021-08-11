@@ -1,0 +1,19 @@
+body {
+  background-color: blue;
+}
+
+.grid-continer {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 20px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.buttoperation {
+  background-color: coral;
+}
+
+button {
+    padding: 1rem;
+}
