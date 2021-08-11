@@ -1,3 +1,7 @@
+# Describtion
+
+Simple Calculator built using React.js.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +72,27 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Author
+
+# 👤 Abdulrahman Naser
+- GitHub: [@githubhandle](https://github.com/Abdona)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdulrahman-nasser-2b7173131/)
+
+<!-- ## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/Abdona/Deutsch_Directory/pull/1#issue-592645424). -->
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Inspiration
+Microverse
+
+## 📝 License
+
+This project is [MIT]() licensed.
