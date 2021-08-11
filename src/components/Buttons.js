@@ -7,6 +7,7 @@ export default class MyCalculator extends React.Component {
   render() {
     return (
       <div className="grid-continer">
+        <input className="resultscreen" placeholder="0" />
         <button>AC</button>
         <button>+/-</button>
         <button>%</button>
@@ -23,7 +24,7 @@ export default class MyCalculator extends React.Component {
         <button>2</button>
         <button>3</button>
         <button className="buttoperation">+</button>
-        <button>0</button>
+        <button className="zeroitem">0</button>
         <button>.</button>
         <button className="buttoperation">=</button>
       </div>
