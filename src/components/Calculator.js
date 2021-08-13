@@ -1,13 +1,25 @@
+/* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/no-unused-state */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
+import calculate from '../logic/calculate';
 
 export default class MyCalculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = { total: 0, next: 0, operation: '' };
+    this.calchandler = this.calchandler.bind(this);
+  }
+
+  calchandler(e) {
+    if (e.target.innerText === 'AC') {
+      const { next, operation } = calculate(this.state, e.target.innerText);
+      this.setState({ total: 0, next, operation });
+    } else {
+      this.setState(calculate(this.state, e.target.innerText));
+    }
   }
 
   render() {
