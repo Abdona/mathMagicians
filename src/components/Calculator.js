@@ -1,9 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/no-access-state-in-setstate */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable react/no-unused-state */
-/* eslint-disable react/button-has-type */
 import React from 'react';
 import calculate from '../logic/calculate';
 
