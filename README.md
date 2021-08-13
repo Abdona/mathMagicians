@@ -80,11 +80,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - GitHub: [@githubhandle](https://github.com/Abdona)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdulrahman-nasser-2b7173131/)
 
-## 🤝 Contributing
+<!-- ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Abdona/math_magicians/issues).
+Feel free to check the [issues page](https://github.com/Abdona/Deutsch_Directory/pull/1#issue-592645424). -->
 
 ## Show your support
 
@@ -95,4 +95,4 @@ Microverse
 
 ## 📝 License
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT]() licensed.
