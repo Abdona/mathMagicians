@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import Big from 'big.js';
 
 export default function operate(numberOne, numberTwo, operation) {
