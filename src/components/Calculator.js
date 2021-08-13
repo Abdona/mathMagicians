@@ -1,8 +1,13 @@
+/* eslint-disable react/no-unused-state */
 /* eslint-disable react/button-has-type */
-/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 
 export default class MyCalculator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { total: 0 };
+  }
+
   render() {
     return (
       <div className="grid-continer">
