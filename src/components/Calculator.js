@@ -10,18 +10,17 @@ import calculate from '../logic/calculate';
 export default class MyCalculator extends React.Component {
   constructor(props) {
     super(props);
-    this.screenString = 0;
-    this.state = { total: this.screenString, next: '', operation: '' };
+    this.state = { total: 0, next: '', operation: '' };
     this.calchandler = this.calchandler.bind(this);
   }
 
-  // buttonhandler(e) {
-  //   this.screenString += e.target.innerText;
-  //   this.setState({ total: this.screenString });
-  // }
-
   calchandler(e) {
-    this.setState(calculate(this.state, e.target.innerText));
+    if (e.target.innerText === 'AC') {
+      const { next, operation } = calculate(this.state, e.target.innerText);
+      this.setState({ total: 0, next, operation });
+    } else {
+      this.setState(calculate(this.state, e.target.innerText));
+    }
   }
 
   render() {
