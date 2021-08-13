@@ -1,12 +1,19 @@
+/* eslint-disable react/no-unused-state */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 
 export default class MyCalculator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { total: 0, next: 0, operation: '' };
+  }
+
   render() {
     return (
       <div className="grid-continer">
-        <input className="resultscreen" readOnly placeholder={0} />
+        <input className="resultscreen" readOnly placeholder={this.state.total} />
         <button onClick={this.calchandler}>AC</button>
         <button onClick={this.calchandler}>+/-</button>
         <button onClick={this.calchandler}>%</button>
