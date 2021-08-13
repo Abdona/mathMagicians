@@ -10,7 +10,7 @@ import calculate from '../logic/calculate';
 export default class MyCalculator extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { total: 0, next: '', operation: '' };
+    this.state = { total: 0, next: 0, operation: '' };
     this.calchandler = this.calchandler.bind(this);
   }
 
