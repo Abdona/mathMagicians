@@ -19,24 +19,6 @@ export default class MyCalculator extends React.Component {
   }
 
   calchandler(e) {
-    // if (e.target.innerText === 'AC') {
-    //   // this.value = 0;
-    //   // this.num = '';
-    //   const { total, next, operation } = calculate(this.state, e.target.innerText);
-    //   // alert(total);
-    //   this.setState({
-    //     screen: 0, total, next, operation,
-    //   });
-    // } else {
-    //   // this.num += e.target.innerText;
-    //   const { total, next, operation } = calculate(this.state, e.target.innerText);
-    //   alert(total);
-    //   // this.value = total;
-    //   // alert(this.value);
-    //   this.setState({
-    //     screen: this.num, total, next, operation,
-    //   });
-    // }
     if (e.target.innerText === 'AC') {
       this.num = '';
       const { total, next, operation } = calculate(this.state, e.target.innerText);
@@ -49,11 +31,15 @@ export default class MyCalculator extends React.Component {
         screen: total, total, next, operation,
       });
       this.num = total;
-      // alert(this.state.total);
+    } else if (e.target.innerText === '+/-') {
+      const { total, next, operation } = calculate(this.state, e.target.innerText);
+      this.setState({
+        screen: total, total, next, operation,
+      });
+      this.num = total;
     } else {
       this.num += e.target.innerText;
       this.setState({ screen: this.num, ...calculate(this.state, e.target.innerText) });
-      // alert(this.state.total);
     }
   }
 
