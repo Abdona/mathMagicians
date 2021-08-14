@@ -48,6 +48,7 @@ export default class MyCalculator extends React.Component {
       this.setState({
         screen: total, total, next, operation,
       });
+      this.num = total;
       // alert(this.state.total);
     } else {
       this.num += e.target.innerText;
