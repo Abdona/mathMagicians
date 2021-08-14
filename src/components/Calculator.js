@@ -4,11 +4,15 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/prefer-stateless-function */
-import React from 'react';
+import React, { useState } from 'react';
 import calculate from '../logic/calculate';
 
 export default function MyCalculator() {
   let num = '';
+  const [total, setTotal] = useState();
+  const [next, setNext] = useState();
+  const [operator, setOperator] = useState();
+  const state = {total, next, operator };
   const calchandler = (e) => {
     if (e.target.innerText === 'AC') {
       num = '';
