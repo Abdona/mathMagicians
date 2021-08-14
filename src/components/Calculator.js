@@ -7,20 +7,11 @@
 import React from 'react';
 import calculate from '../logic/calculate';
 
-export default class MyCalculator extends React.Component {
-  constructor(props) {
-    super(props);
-    this.num = '';
-    this.value = 0;
-    this.state = {
-      screen: 0, total: 0, next: 0, operation: '',
-    };
-    this.calchandler = this.calchandler.bind(this);
-  }
-
-  calchandler(e) {
+export default function MyCalculator() {
+  let num = '';
+  const calchandler = (e) => {
     if (e.target.innerText === 'AC') {
-      this.num = '';
+      num = '';
       const { total, next, operation } = calculate(this.state, e.target.innerText);
       this.setState({
         screen: 0, total, next, operation,
@@ -30,43 +21,41 @@ export default class MyCalculator extends React.Component {
       this.setState({
         screen: total, total, next, operation,
       });
-      this.num = total;
+      num = total;
     } else if (e.target.innerText === '+/-') {
       const { total, next, operation } = calculate(this.state, e.target.innerText);
       this.setState({
         screen: next || total, total, next, operation,
       });
-      this.num = next || total;
+      num = next || total;
     } else {
-      this.num += e.target.innerText;
-      this.setState({ screen: this.num, ...calculate(this.state, e.target.innerText) });
+      num += e.target.innerText;
+      this.setState({ screen: num, ...calculate(this.state, e.target.innerText) });
     }
-  }
+  };
 
-  render() {
-    return (
-      <div className="grid-continer">
-        <input className="resultscreen" readOnly placeholder={this.state.screen} />
-        <button onClick={this.calchandler}>AC</button>
-        <button onClick={this.calchandler}>+/-</button>
-        <button onClick={this.calchandler}>%</button>
-        <button onClick={this.calchandler} className="buttoperation">÷</button>
-        <button onClick={this.calchandler}>7</button>
-        <button onClick={this.calchandler}>8</button>
-        <button onClick={this.calchandler}>9</button>
-        <button onClick={this.calchandler} className="buttoperation">x</button>
-        <button onClick={this.calchandler}>4</button>
-        <button onClick={this.calchandler}>5</button>
-        <button onClick={this.calchandler}>6</button>
-        <button onClick={this.calchandler} className="buttoperation">-</button>
-        <button onClick={this.calchandler}>1</button>
-        <button onClick={this.calchandler}>2</button>
-        <button onClick={this.calchandler}>3</button>
-        <button onClick={this.calchandler} className="buttoperation">+</button>
-        <button onClick={this.calchandler} className="zeroitem">0</button>
-        <button onClick={this.calchandler}>.</button>
-        <button onClick={this.calchandler} id="eqoperation" className="buttoperation">=</button>
-      </div>
-    );
-  }
+  return (
+    <div className="grid-continer">
+      <input className="resultscreen" readOnly placeholder={this.state.screen} />
+      <button onClick={calchandler}>AC</button>
+      <button onClick={calchandler}>+/-</button>
+      <button onClick={calchandler}>%</button>
+      <button onClick={calchandler} className="buttoperation">÷</button>
+      <button onClick={calchandler}>7</button>
+      <button onClick={calchandler}>8</button>
+      <button onClick={calchandler}>9</button>
+      <button onClick={calchandler} className="buttoperation">x</button>
+      <button onClick={calchandler}>4</button>
+      <button onClick={calchandler}>5</button>
+      <button onClick={calchandler}>6</button>
+      <button onClick={calchandler} className="buttoperation">-</button>
+      <button onClick={calchandler}>1</button>
+      <button onClick={calchandler}>2</button>
+      <button onClick={calchandler}>3</button>
+      <button onClick={calchandler} className="buttoperation">+</button>
+      <button onClick={calchandler} className="zeroitem">0</button>
+      <button onClick={calchandler}>.</button>
+      <button onClick={calchandler} id="eqoperation" className="buttoperation">=</button>
+    </div>
+  );
 }
