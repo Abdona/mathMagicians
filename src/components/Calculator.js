@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/no-unused-state */
@@ -9,38 +10,52 @@ import calculate from '../logic/calculate';
 
 export default function MyCalculator() {
   let num = '';
+  const [screen, setScreen] = useState(num);
   const [total, setTotal] = useState();
   const [next, setNext] = useState();
-  const [operator, setOperator] = useState();
-  const state = {total, next, operator };
+  const [operation, setOperation] = useState();
+  const state = { total, next, operation };
   const calchandler = (e) => {
     if (e.target.innerText === 'AC') {
       num = '';
-      const { total, next, operation } = calculate(this.state, e.target.innerText);
-      this.setState({
-        screen: 0, total, next, operation,
-      });
+      const { total, next, operation } = calculate(state, e.target.innerText);
+      state.total = total;
+      state.next = next;
+      state.operation = operation;
+      setScreen(num);
+      setTotal(total);
+      setNext(next);
+      setOperation(operation);
+      // alert(total);
     } else if (e.target.id === 'eqoperation') {
-      const { total, next, operation } = calculate(this.state, e.target.innerText);
-      this.setState({
-        screen: total, total, next, operation,
-      });
+      const { total, next, operation } = calculate(state, e.target.innerText);
+      setScreen(total);
+      setTotal(total);
+      setNext(next);
+      setOperation(operation);
       num = total;
     } else if (e.target.innerText === '+/-') {
-      const { total, next, operation } = calculate(this.state, e.target.innerText);
-      this.setState({
-        screen: next || total, total, next, operation,
-      });
+      const { total, next, operation } = calculate(state, e.target.innerText);
+      // setScreen(next || total);
+      setTotal(total);
+      setNext(next);
+      setOperation(operation);
       num = next || total;
     } else {
-      num += e.target.innerText;
-      this.setState({ screen: num, ...calculate(this.state, e.target.innerText) });
+      setScreen((prevscreen) => setScreen(prevscreen + e.target.innerText));
+      const { total, next, operation } = calculate(state, e.target.innerText);
+      setTotal((prevTotal) => total || prevTotal);
+      setNext((prevNext) => next || prevNext);
+      setOperation((prevOper) => operation || prevOper);
     }
+    alert(state.total);
+    alert(state.next);
+    alert(state.operation);
   };
 
   return (
     <div className="grid-continer">
-      <input className="resultscreen" readOnly placeholder={this.state.screen} />
+      <input className="resultscreen" readOnly placeholder={screen} />
       <button onClick={calchandler}>AC</button>
       <button onClick={calchandler}>+/-</button>
       <button onClick={calchandler}>%</button>
