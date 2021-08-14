@@ -50,7 +50,7 @@ export default class MyCalculator extends React.Component {
         <button onClick={this.calchandler}>AC</button>
         <button onClick={this.calchandler}>+/-</button>
         <button onClick={this.calchandler}>%</button>
-        <button onClick={this.calchandler} className="buttoperation">/</button>
+        <button onClick={this.calchandler} className="buttoperation">÷</button>
         <button onClick={this.calchandler}>7</button>
         <button onClick={this.calchandler}>8</button>
         <button onClick={this.calchandler}>9</button>
