@@ -19,14 +19,10 @@ export default function MyCalculator() {
     if (e.target.innerText === 'AC') {
       num = '';
       const { total, next, operation } = calculate(state, e.target.innerText);
-      state.total = total;
-      state.next = next;
-      state.operation = operation;
       setScreen(num);
       setTotal(total);
       setNext(next);
       setOperation(operation);
-      // alert(total);
     } else if (e.target.id === 'eqoperation') {
       const { total, next, operation } = calculate(state, e.target.innerText);
       setScreen(total);
@@ -36,7 +32,7 @@ export default function MyCalculator() {
       num = total;
     } else if (e.target.innerText === '+/-') {
       const { total, next, operation } = calculate(state, e.target.innerText);
-      // setScreen(next || total);
+      setScreen(next || total);
       setTotal(total);
       setNext(next);
       setOperation(operation);
@@ -45,12 +41,9 @@ export default function MyCalculator() {
       setScreen((prevscreen) => setScreen(prevscreen + e.target.innerText));
       const { total, next, operation } = calculate(state, e.target.innerText);
       setTotal((prevTotal) => total || prevTotal);
-      setNext((prevNext) => next || prevNext);
+      setNext(next);
       setOperation((prevOper) => operation || prevOper);
     }
-    alert(state.total);
-    alert(state.next);
-    alert(state.operation);
   };
 
   return (
