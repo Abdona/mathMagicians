@@ -34,9 +34,9 @@ export default class MyCalculator extends React.Component {
     } else if (e.target.innerText === '+/-') {
       const { total, next, operation } = calculate(this.state, e.target.innerText);
       this.setState({
-        screen: total, total, next, operation,
+        screen: next || total, total, next, operation,
       });
-      this.num = total;
+      this.num = next || total;
     } else {
       this.num += e.target.innerText;
       this.setState({ screen: this.num, ...calculate(this.state, e.target.innerText) });
